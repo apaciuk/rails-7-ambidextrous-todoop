@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_211_221_011_534) do
+ActiveRecord::Schema.define(version: 20_220_312_213_004) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -100,6 +100,16 @@ ActiveRecord::Schema.define(version: 20_211_221_011_534) do
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
     t.index ['user_id'], name: 'index_services_on_user_id'
+  end
+
+  create_table 'tasks', force: :cascade do |t|
+    t.string 'title'
+    t.string 'description'
+    t.integer 'state', default: 0
+    t.datetime 'deadline', precision: 6
+    t.datetime 'deleted_at', precision: 6
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
   create_table 'users', force: :cascade do |t|
