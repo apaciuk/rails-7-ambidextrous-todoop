@@ -13,12 +13,12 @@
 
   <div>
     <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, size: 52 %>
   </div>
 
   <div>
     <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
+    <%= form.text_area :description, size: "55x10"   %>
   </div>
 
   <div>
@@ -29,6 +29,11 @@
   <div>
     <%= form.label :deadline, style: "display: block" %>
     <%= form.datetime_field :deadline %>
+  </div>
+   <div>
+    <%= form.label :owner, style: "display: block" %>
+    <%= form.task_params.merge(user_id) %>
+   
   </div>
   <div>
     <%= form.submit %>
