@@ -23,6 +23,7 @@ class TasksController < ApplicationController
 
   # POST /tasks or /tasks.json
   def create
+    @user = params.merge(:user_id)
     @task = Task.new(task_params.merge({ user_id: current_user.id }))
 
     respond_to do |format|
@@ -68,6 +69,6 @@ class TasksController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def task_params
-    params.require(:task).permit(:title, :description, :state, :deadline, :deleted_at, params.merge:user_id)
+    params.require(:task).permit(:title, :description, :state, :deadline, :deleted_at, :user_id)
   end
 end
