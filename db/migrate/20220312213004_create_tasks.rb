@@ -8,7 +8,7 @@ class CreateTasks < ActiveRecord::Migration[7.0]
       t.integer :state, default: 0
       t.datetime :deadline
       t.datetime :deleted_at
-
+      t.references :user
       t.timestamps
     end
   end
