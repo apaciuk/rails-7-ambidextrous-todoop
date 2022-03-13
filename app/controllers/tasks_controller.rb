@@ -23,11 +23,11 @@ class TasksController < ApplicationController
 
   # POST /tasks or /tasks.json
   def create
-    @task = Task.new(task_params)
+    @task = Task.new(task_params.merge({ user_id: current_user.id }))
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to task_url(@task), alert: 'Task was successfully created.' }
+        format.html { redirect_to root_url(@task), alert: 'Task was successfully created.' }
         format.json { render :show, status: :created, location: @task }
       else
         format.html { render :new, status: :unprocessable_entity }
