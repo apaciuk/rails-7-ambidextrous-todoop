@@ -23,5 +23,9 @@
     <strong>Deleted at:</strong>
     <%= task.deleted_at %>
   </p>
+   <p>
+    <strong>Raised by:</strong>
+    <%= task.task.merge(user_id) %>
+  </p>
 
 </div>
