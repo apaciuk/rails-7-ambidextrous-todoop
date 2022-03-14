@@ -23,7 +23,11 @@ class TasksController < ApplicationController
 
   # POST /tasks or /tasks.json
   def create
-    @task = Task.new(params[:task, :user_id ])
+    @task = Task.new
+    @task.title = params[:title]
+    @task.description = params[:description]
+  
+    #@task = Task.new(params[:task, :user_id ]) 
    # @task = Task.new(params.merge({ user_id: current_user.id }))
 
     respond_to do |format|
