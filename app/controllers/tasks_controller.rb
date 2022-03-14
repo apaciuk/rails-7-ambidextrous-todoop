@@ -27,7 +27,8 @@ class TasksController < ApplicationController
     @task.title = task_params[:title]
     @task.description = task_params[:description]
     @task.state = task_params[:state]
-    @task.deadline = task_params[:deadline]
+    @task.deadline = task_params[:deadline] 
+    @task.user_id = task_params[:user_id]
   
     #@task = Task.new(params[:task, :user_id ]) 
    # @task = Task.new(params.merge({ user_id: current_user.id }))
